@@ -1,4 +1,3 @@
-#!/bin/bash
 
 echo '
        dddddd     dddd   dddd        dddd      ddddddddddd   dddd            ddddddddddddddd       dddddd          dddddddddddd    
@@ -9,9 +8,9 @@ echo '
   dddd    ddddddd     ddddd    ddddd      dddddd        dddd            dddd                dddd      ddd     dddd     dddd      
  dddd     dddddd        ddddddddd             dddddd   ddddddddddddd   dddddddddddddd      dddddddd   ddd    ddddd        dddd     
 '
-echo 'nuclei automation script by bobby'
+echo 'nuclei automation script by bobby610200'
 
-dir=/root/Recon/$1
+dir=/root/Recon/
 
 sudo mkdir $dir
 
@@ -23,13 +22,13 @@ for url in $(cat $1); do
         echo '_____________________________________________'
         echo  "${red} Testing : ${green} ${url} ${reset}"
         echo '---------------------------------------------'
-        
-	    echo '_____________________________________________________________________________________________'
+        sudo mkdir $dir/$url
+	echo '_____________________________________________________________________________________________'
         echo  "${red} Performing : ${green} Subdomain Scanning & Resolving and doing Nuclei Scan ${reset}"
         echo '----------------------------------------------------------------------------------------------'		
-        subfinder -d $url -silent |httpx -silent |sort -u| nuclei -c 200 -silent -t /root/Tools/nuclei-templates/ -o $dir/$1_nuclei
+        subfinder -d $url -silent |httpx -silent |sort -u| nuclei -c 200 -silent -t /root/Tools/nuclei-templates/ -o $dir/$url/$url-nuclei
 	echo '______________________________________________________________________'
         echo  "${red} Performing : ${green} Http request smuggling ${reset}"
         echo '----------------------------------------------------------------------'
-        echo https://$url | python3 /root/Tools/smuggler/smuggler.py > $dir/$1_smuggler
+        echo https://$url | python3 /root/Tools/smuggler/smuggler.py > $dir/$url/$url-smuggler
 done

@@ -27,7 +27,7 @@ for url in $(cat $1); do
 	    echo '_____________________________________________________________________________________________'
         echo  "${red} Performing : ${green} Subdomain Scanning & Resolving and doing Nuclei Scan ${reset}"
         echo '----------------------------------------------------------------------------------------------'		
-        subfinder -d $url -silent |httpx -silent |sort -u| nuclei -c 200 -silent -t /root/nuclei-templates/ -o $dir/$1_nuclei
+        subfinder -d $url -silent |httpx -silent |sort -u| nuclei -c 200 -silent -t /root/Tools/nuclei-templates/ -o $dir/$1_nuclei
 	echo '______________________________________________________________________'
         echo  "${red} Performing : ${green} Http request smuggling ${reset}"
         echo '----------------------------------------------------------------------'

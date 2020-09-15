@@ -16,6 +16,8 @@ cp nuclear.sh $dir/
 echo '
 
 alias httpx=/root/go/bin/httpx
-alias subfinder=/root/fo/bin/subfinder
+alias subfinder=/root/go/bin/subfinder
 alias nuclear=/root/Tools/nuclear.sh
 '>> ~/.bashrc
+
+source ~/.bashrc

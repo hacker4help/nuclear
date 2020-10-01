@@ -1,5 +1,5 @@
 #!/bin/bash
-#sudo apt-get install golang;
+sudo apt-get install golang;
 
 echo 'Making Directories'
 dir=/root/Tools

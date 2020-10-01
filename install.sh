@@ -5,10 +5,10 @@ echo 'Making Directories'
 dir=/root/Tools
 mkdir $dir
 echo 'Installing Tools'
-git clone https://github.com/projectdiscovery/nuclei.git; cd nuclei/cmd/nuclei/; go build; mv nuclei /usr/local/bin/; nuclei -h
+git clone https://github.com/projectdiscovery/nuclei.git; cd nuclei/v2/cmd/nuclei/; go build; mv nuclei /usr/local/bin/; nuclei -h
 git clone https://github.com/projectdiscovery/nuclei-templates $dir/nuclei-templates
 git clone https://github.com/projectdiscovery/subfinder.git
-cd subfinder/cmd/subfinder
+cd subfinder/v2/cmd/subfinder
 go build .
 mv subfinder /usr/local/bin/
 subfinder -h
